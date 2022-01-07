@@ -43,7 +43,7 @@
   }
 
   const box = document.createElement("p");
-  box.textContent = items2.join(" ");
+  box.textContent = items2.join("  ");
   document.querySelector(".info").appendChild(box);
 
   const doors = document.querySelectorAll(".door");
@@ -135,6 +135,16 @@
     }
     return arr;
   }
+
+  $(document).ready(function(){
+    $('#arm').click(function(e) {
+			var arm = $(this).addClass('clicked');
+      setTimeout(function() { arm.removeClass('clicked');}, 500);
+      e.preventDefault();
+      init();
+      spin();
+	  });
+});
 
   init();
 })();

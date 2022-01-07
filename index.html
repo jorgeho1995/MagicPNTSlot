@@ -8,7 +8,7 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -33,14 +33,23 @@
     </div>
 
     <div class="buttons">
-      <button id="spinner" class="waves-effect waves-light btn red">Spin</button>
-      <button id="reseter" class="waves-effect waves-light btn red">Reset</button>
+      <button id="spinner" class="waves-effect waves-light btn red" style="display: none;">Spin</button>
+      <button id="reseter" class="waves-effect waves-light btn red" style="display: none;">Reset</button>
+    </div>
+
+    <div id="equation" class="done">
+        <div id="shoulder"><div id="arm"></div></div>
+      </div>
     </div>
 
     <div class="info"></div>
+
   </div>
   <!-- partial -->
   <script src="./static/js/script.js"></script>
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
 
 </body>
 
