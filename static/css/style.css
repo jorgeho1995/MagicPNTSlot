@@ -22,7 +22,7 @@ body {
   width: 100%;
   height: 100%;
 
-  background: #212121;
+  background: #15202B;
 
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ body {
   background: #fafafa;
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
 
-  width: 300px;
+  width: 250px;
   height: 150px;
   overflow: hidden;
 
@@ -72,12 +72,24 @@ button {
   margin: 0 0.2rem 0 0.2rem;
 }
 
-.info {
+.header {
   position: fixed;
-  bottom: 0;
+  top: 0px;
+  padding: 5px 0 5px 0;
   width: 100%;
   text-align: center;
   color:rgb(255, 255, 255);
+  background: #22303C;
+}
+
+.info {
+  position: fixed;
+  bottom: 0px;
+  padding: 5px 0 5px 0;
+  width: 100%;
+  text-align: center;
+  color:rgb(255, 255, 255);
+  background: #22303C;
 }
 
 input {

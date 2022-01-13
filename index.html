@@ -4,46 +4,135 @@
 <head>
   <meta charset="UTF-8">
   <title>MagicPNTSlot Machine</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="./static/css/style.css">
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Compiled and minified JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
 
 </head>
 
 <body>
   <!-- partial:index.partial.html -->
   <div id="app">
+    <div class="modal fade" id="winner">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">The next secretary will be...</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <img id="winnerPhoto" src="" style="width: 200px; height: 200px;">
+              </div>
+              <div class="col-lg-6">
+                <img src="https://media.giphy.com/media/l51J4hE1kSY56TwIK0/giphy.gif"
+                  style="width: 200px; height: 200px;">
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header">
+      <div class="row" style="text-align: left;">
+        <div class="col-lg-1">
+          <img src="./assets/images/pnt.svg" style="width: 150px; height: 100px;">
+        </div>
+        <div class="col-lg-11" style="padding-top: 20px;">
+          <h1>Welcome to MagicPNTSlot Machine</h1>
+        </div>
+      </div>
+    </div>
+
     <div class="doors">
       <div class="door">
         <div class="boxes">
         </div>
       </div>
-
       <div class="door">
         <div class="boxes">
         </div>
       </div>
-
       <div class="door">
         <div class="boxes">
         </div>
       </div>
-    </div>
-
-    <div class="buttons">
-      <button id="spinner" class="waves-effect waves-light btn red" style="display: none;">Spin</button>
-      <button id="reseter" class="waves-effect waves-light btn red" style="display: none;">Reset</button>
     </div>
 
     <div id="equation" class="done">
-        <div id="shoulder"><div id="arm"></div></div>
+      <div id="shoulder">
+        <div id="arm"></div>
       </div>
     </div>
 
-    <div class="info"></div>
-
+    <div class="info">
+      <div class="row" style="text-align: center;">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-1">
+          <img src="./assets/images/adri.svg" style="width: 100px; height: 100px;">
+          <div>ANQG</div>
+        </div>
+        <div class="col-lg-1">
+          <img src="./assets/images/carlos.svg" style="width: 100px; height: 100px;">
+          <div>CSDA</div>
+        </div>
+        <div class="col-lg-1">
+          <img src="./assets/images/dani.svg" style="width: 100px; height: 100px;">
+          <div>DNCG</div>
+        </div>
+        <div class="col-lg-1">
+          <img src="./assets/images/fer.svg" style="width: 100px; height: 100px;">
+          <div>FEBL</div>
+        </div>
+        <div class="col-lg-1">
+          <img src="./assets/images/jorge.svg" style="width: 100px; height: 100px;">
+          <div>JRHO</div>
+        </div>
+        <div class="col-lg-1">
+          <img src="./assets/images/jose.svg" style="width: 100px; height: 100px;">
+          <div>JCMO</div>
+        </div>
+        <div class="col-lg-1">
+          <img src="./assets/images/juanra.svg" style="width: 100px; height: 100px;">
+          <div>JRCH</div>
+        </div>
+        <div class="col-lg-1">
+          <img src="./assets/images/konrad.svg" style="width: 100px; height: 100px;">
+          <div>KKJA</div>
+        </div>
+        <div class="col-lg-1">
+          <img src="./assets/images/ma.svg" style="width: 100px; height: 100px;">
+          <div>MAFG</div>
+        </div>
+        <div class="col-lg-1">
+          <img src="./assets/images/sergio.svg" style="width: 100px; height: 100px;">
+          <div>SDGI</div>
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+    </div>
   </div>
   <!-- partial -->
   <script src="./static/js/script.js"></script>

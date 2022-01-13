@@ -14,6 +14,8 @@
     "./assets/images/sergio.svg"
   ];
 
+  let number = items.length;
+
   const items2 = [
     "ANQG",
     "CSDA",
@@ -27,42 +29,27 @@
     "SDGI"
   ];
 
-  for (let i = 0; i < items.length; i++) {
-    const div = document.createElement("div");
-    const box = document.createElement("img");
-    const p = document.createElement("p");
-    box.src = items[i];
-    box.style.width = "100px";
-    box.style.height = "100px";
-    box.className = "container";
-    p.textContent = items2[i];
-    p.className = "centered";
-    div.appendChild(box);
-    div.appendChild(p);
-    document.querySelector(".info").appendChild(box);
-  }
-
-  const box = document.createElement("p");
-  box.textContent = items2.join("  ");
-  document.querySelector(".info").appendChild(box);
-
   const doors = document.querySelectorAll(".door");
-  document.querySelector("#spinner").addEventListener("click", spin);
-  document.querySelector("#reseter").addEventListener("click", init);
 
   async function spin() {
-    init(false, 1, 2);
+    let winner = init(false, 1, 2);
     for (const door of doors) {
       const boxes = door.querySelector(".boxes");
       const duration = parseInt(boxes.style.transitionDuration);
       boxes.style.transform = "translateY(0)";
       await new Promise((resolve) => setTimeout(resolve, duration * 100));
     }
+    console.log(winner[number + 1]);
+    let imgWinner = winner[number + 1];
+    document.getElementById("winnerPhoto").src = imgWinner;
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    $('#winner').modal('show');
   }
 
   function init(firstInit = true, groups = 1, duration = 1) {
     let init = true;
     let initPool = [];
+    let poolWinner;
     for (const door of doors) {
       if (firstInit) {
         door.dataset.spinned = "0";
@@ -109,7 +96,7 @@
         );
       }
       // console.log(pool);
-
+      let winner = 0;
       for (let i = pool.length - 1; i >= 0; i--) {
         const box = document.createElement("img");
         box.classList.add("box");
@@ -117,6 +104,7 @@
         box.style.height = door.clientHeight + "px";
         box.src = pool[i];
         boxesClone.appendChild(box);
+        winner++;
       }
       boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
       boxesClone.style.transform = `translateY(-${door.clientHeight * (pool.length - 1)
@@ -124,7 +112,9 @@
       door.replaceChild(boxesClone, boxes);
       // console.log(door);
       init = false;
+      poolWinner = pool;
     }
+    return poolWinner;
   }
 
   function shuffle([...arr]) {
@@ -136,15 +126,15 @@
     return arr;
   }
 
-  $(document).ready(function(){
-    $('#arm').click(function(e) {
-			var arm = $(this).addClass('clicked');
-      setTimeout(function() { arm.removeClass('clicked');}, 500);
+  $(document).ready(function () {
+    $('#arm').click(function (e) {
+      var arm = $(this).addClass('clicked');
+      setTimeout(function () { arm.removeClass('clicked'); }, 500);
       e.preventDefault();
       init();
       spin();
-	  });
-});
+    });
+  });
 
   init();
 })();
