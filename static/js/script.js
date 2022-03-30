@@ -11,7 +11,8 @@
     "./assets/images/juanra.svg",
     "./assets/images/konrad.svg",
     "./assets/images/ma.svg",
-    "./assets/images/sergio.svg"
+    "./assets/images/sergio.svg",
+    "./assets/images/pablo.svg"
   ];
 
   let number = items.length;
@@ -26,7 +27,8 @@
     "JRCH",
     "KKJA",
     "MAFG",
-    "SDGI"
+    "SDGI",
+    "TRPLZM"
   ];
 
   const doors = document.querySelectorAll(".door");
