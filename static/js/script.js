@@ -41,7 +41,6 @@
       boxes.style.transform = "translateY(0)";
       await new Promise((resolve) => setTimeout(resolve, duration * 100));
     }
-    console.log(winner[number + 1]);
     let imgWinner = winner[number + 1];
     document.getElementById("winnerPhoto").src = imgWinner;
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -97,7 +96,6 @@
           { once: true }
         );
       }
-      // console.log(pool);
       let winner = 0;
       for (let i = pool.length - 1; i >= 0; i--) {
         const box = document.createElement("img");
@@ -112,7 +110,6 @@
       boxesClone.style.transform = `translateY(-${door.clientHeight * (pool.length - 1)
         }px)`;
       door.replaceChild(boxesClone, boxes);
-      // console.log(door);
       init = false;
       poolWinner = pool;
     }
@@ -124,6 +121,12 @@
     while (m) {
       const i = Math.floor(Math.random() * m--);
       [arr[m], arr[i]] = [arr[i], arr[m]];
+    }
+    const len = arr.length;
+    let a = 0;
+    while (arr[(len - 1)].includes('carlos') || arr[(len - 1)].includes('dani') || arr[(len - 1)].includes('jorge')) {
+        arr[len - 1] = arr[a];
+        a++;
     }
     return arr;
   }
