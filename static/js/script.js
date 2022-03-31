@@ -126,6 +126,7 @@
     let a = 0;
     while (arr[(len - 1)].includes('carlos') || arr[(len - 1)].includes('dani') || arr[(len - 1)].includes('jorge')) {
         arr[len - 1] = arr[a];
+        arr[a] = arr[len - 1];
         a++;
     }
     return arr;
