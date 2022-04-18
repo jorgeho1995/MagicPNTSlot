@@ -56,6 +56,8 @@ body {
   justify-content: center;
   align-items: center;
 
+  object-fit: scale-down;
+
   font-size: 3rem;
 }
 

@@ -1,7 +1,15 @@
 (function () {
   "use strict";
 
-  const items = [
+  
+
+  const modo_JRCH = ["./assets/images/juanra.png",
+                     "https://media.giphy.com/media/SSJzjTGVWzfN1Il9ba/giphy.gif"];
+
+  let flag_modo_Juanra = false;
+
+
+  let items = [
     "./assets/images/adri.svg",
     "./assets/images/carlos.svg",
     "./assets/images/dani.svg",
@@ -34,6 +42,21 @@
   ];
 
   const doors = document.querySelectorAll(".door");
+
+  function modoJuanra() {
+    if(flag_modo_Juanra){
+        flag_modo_Juanra = false;
+        document.getElementById("gif").src = "https://media.giphy.com/media/l51J4hE1kSY56TwIK0/giphy.gif";
+        document.getElementById("fotoJuanraAbajo").src = "./assets/images/juanra.svg";
+        items[7] ="./assets/images/juanra.svg";
+    }else{
+        document.getElementById("gif").src = modo_JRCH[1];
+        document.getElementById("fotoJuanraAbajo").src = modo_JRCH[0];
+        items[7] = modo_JRCH[0];
+        flag_modo_Juanra = true;
+    }
+
+  }
 
   async function spin() {
     let winner = init(false, 1, 2);
@@ -131,10 +154,24 @@
         arr[a] = arr[len - 1];
         a++;
     }
+
+    if (flag_modo_Juanra == true) {
+        // Very important loop until feria de abril is over
+        while(!arr[(len - 1)].includes('juanra')) {
+            arr[len - 1] = arr[a];
+            arr[a] = arr[len - 1];
+            a++;
+        }
+    }
+    
     return arr;
   }
+  
 
   $(document).ready(function () {
+    $('#gatoNinja').click(function (e) {
+        modoJuanra();
+    });
     $('#arm').click(function (e) {
       var arm = $(this).addClass('clicked');
       setTimeout(function () { arm.removeClass('clicked'); }, 500);
