@@ -1,15 +1,7 @@
 (function () {
   "use strict";
 
-  
-
-  const modo_JRCH = ["./assets/images/juanra.png",
-                     "https://media.giphy.com/media/SSJzjTGVWzfN1Il9ba/giphy.gif"];
-
-  let flag_modo_Juanra = false;
-
-
-  let items = [
+  const items = [
     "./assets/images/adri.svg",
     "./assets/images/carlos.svg",
     "./assets/images/dani.svg",
@@ -24,21 +16,27 @@
     "./assets/images/pablo.svg"
   ];
 
+  const modo_JRCH = ["./assets/images/juanra.png",
+                     "https://media.giphy.com/media/SSJzjTGVWzfN1Il9ba/giphy.gif"];
+
+  let flag_modo_Juanra = false;
+
+
   let number = items.length;
 
-  const items2 = [
-    "ANQG",
-    "CSDA",
-    "DNCG",
-    "DGCM",
-    "FEBL",
-    "JRHO",
-    "JCMO",
-    "JRCH",
-    "KKJA",
-    "MAFG",
-    "SDGI",
-    "TRPLZM"
+  const cruces = [
+    "CruzAdri",
+    "CruzCarlos",
+    "CruzDani",
+    "CruzDiego",
+    "CruzFer",
+    "CruzJorge",
+    "CruzJose",
+    "CruzJuanra",
+    "CruzKonrad",
+    "CruzMA",
+    "CruzSergio",
+    "CruzPablo"
   ];
 
   const doors = document.querySelectorAll(".door");
@@ -55,7 +53,14 @@
         items[7] = modo_JRCH[0];
         flag_modo_Juanra = true;
     }
+  }
 
+  function disable(id, path, num) {
+    if (document.getElementById(id).style.opacity == 0.9) {
+      document.getElementById(id).style.opacity = 0;
+    } else {
+      document.getElementById(id).style.opacity = 0.9;
+    }
   }
 
   async function spin() {
@@ -90,10 +95,12 @@
       if (!firstInit) {
         if (init) {
           const arr = [];
+          const cruces_aux = [];
           for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
             arr.push(...items);
+            cruces_aux.push(...cruces);
           }
-          pool.push(...shuffle(arr));
+          pool.push(...shuffle(arr, cruces_aux));
           initPool.push(...pool);
         } else {
           pool.push(...initPool);
@@ -141,35 +148,61 @@
     return poolWinner;
   }
 
-  function shuffle([...arr]) {
+  function shuffle([...arr], cruces_aux) {
     let m = arr.length;
     while (m) {
       const i = Math.floor(Math.random() * m--);
       [arr[m], arr[i]] = [arr[i], arr[m]];
+      [cruces_aux[m], cruces_aux[i]] = [cruces_aux[i], cruces_aux[m]];
     }
     const len = arr.length;
     let a = 0;
-    while (arr[(len - 1)].includes('carlos') || arr[(len - 1)].includes('dani') || arr[(len - 1)].includes('jorge')) {
-        arr[len - 1] = arr[a];
-        arr[a] = arr[len - 1];
+    let Aux = ''
+    let Aux2 = ''
+    while ((arr[(len - 1)].includes('carlos') 
+          || arr[(len - 1)].includes('dani') 
+          || arr[(len - 1)].includes('jorge'))) {
+        Aux = arr[a];
+        Aux2 = arr[len - 1];
+        arr[len - 1] = Aux;
+        arr[a] = Aux2;
+        Aux = cruces_aux[a];
+        Aux2 = cruces_aux[len - 1];
+        cruces_aux[len - 1] = Aux;
+        cruces_aux[a] = Aux2;
         a++;
     }
-
-    if (flag_modo_Juanra == true) {
-        // Very important loop until feria de abril is over
-        while(!arr[(len - 1)].includes('juanra')) {
-            arr[len - 1] = arr[a];
-            arr[a] = arr[len - 1];
-            a++;
-        }
+    while ((document.getElementById(cruces_aux[(len - 1)]).style.opacity == 0.9)
+          && a < len) {
+        Aux = arr[a];
+        Aux2 = arr[len - 1];
+        arr[len - 1] = Aux;
+        arr[a] = Aux2;
+        Aux = cruces_aux[a];
+        Aux2 = cruces_aux[len - 1];
+        cruces_aux[len - 1] = Aux;
+        cruces_aux[a] = Aux2;
+        a++;
     }
-    
-    return arr;
+    if (flag_modo_Juanra == true) {
+      // Very important loop until feria de abril is over
+      while(!arr[(len - 1)].includes('juanra')) {
+        Aux = arr[a];
+        Aux2 = arr[len - 1];
+        arr[len - 1] = Aux;
+        arr[a] = Aux2;
+        Aux = cruces_aux[a];
+        Aux2 = cruces_aux[len - 1];
+        cruces_aux[len - 1] = Aux;
+        cruces_aux[a] = Aux2;
+        a++;
+      }
+    }
+  return arr;
   }
-  
 
   $(document).ready(function () {
-    $('#gatoNinja').click(function (e) {
+	  $('#gatoNinja').click(function (e) {
         modoJuanra();
     });
     $('#arm').click(function (e) {
@@ -178,6 +211,42 @@
       e.preventDefault();
       init();
       spin();
+    });
+    $('#CruzAdri').click(function (e) {
+      disable('CruzAdri', "./assets/images/adri.svg", 0)
+    });
+    $('#CruzCarlos').click(function (e) {
+      disable('CruzCarlos', "./assets/images/carlos.svg", 1)
+    });
+    $('#CruzDani').click(function (e) {
+      disable('CruzDani', "./assets/images/dani.svg", 2)
+    });
+	  $('#CruzDiego').click(function (e) {
+      disable('CruzDiego', "./assets/images/diego.svg", 11)
+    });
+    $('#CruzFer').click(function (e) {
+      disable('CruzFer', './assets/images/fer.svg', 3)
+    });
+    $('#CruzJorge').click(function (e) {
+      disable('CruzJorge', './assets/images/jorge.svg', 4)
+    });
+    $('#CruzJose').click(function (e) {
+      disable('CruzJose', './assets/images/jose.svg', 5)
+    });
+    $('#CruzJuanra').click(function (e) {
+      disable('CruzJuanra', './assets/images/juanra.svg', 6)
+    });
+    $('#CruzKonrad').click(function (e) {
+      disable('CruzKonrad', './assets/images/konrad.svg', 7)
+    });
+    $('#CruzMA').click(function (e) {
+      disable('CruzMA', './assets/images/ma.svg', 8)
+    });
+    $('#CruzSergio').click(function (e) {
+      disable('CruzSergio', './assets/images/sergio.svg', 9)
+    });
+    $('#CruzPablo').click(function (e) {
+      disable('CruzPablo', './assets/images/pablo.svg', 10)
     });
   });
 
