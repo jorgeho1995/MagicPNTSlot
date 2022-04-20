@@ -16,7 +16,7 @@
     "./assets/images/pablo.svg"
   ];
 
-  const modo_JRCH = ["./assets/images/juanra.png",
+  const modo_JRCH = ["./assets/images/Juanra.png",
                      "https://media.giphy.com/media/SSJzjTGVWzfN1Il9ba/giphy.gif"];
 
   let flag_modo_Juanra = false;
@@ -186,7 +186,7 @@
     }
     if (flag_modo_Juanra == true) {
       // Very important loop until feria de abril is over
-      while(!arr[(len - 1)].includes('juanra')) {
+      while(!arr[(len - 1)].includes('Juanra')) {
         Aux = arr[a];
         Aux2 = arr[len - 1];
         arr[len - 1] = Aux;
