@@ -5,9 +5,7 @@
     "./assets/images/adri.svg",
     "./assets/images/carlos.svg",
     "./assets/images/dani.svg",
-    "./assets/images/diego.svg",
     "./assets/images/fer.svg",
-    "./assets/images/jorge.svg",
     "./assets/images/jose.svg",
     "./assets/images/juanra.svg",
     "./assets/images/konrad.svg",
@@ -28,9 +26,7 @@
     "CruzAdri",
     "CruzCarlos",
     "CruzDani",
-    "CruzDiego",
     "CruzFer",
-    "CruzJorge",
     "CruzJose",
     "CruzJuanra",
     "CruzKonrad",
@@ -74,6 +70,8 @@
     let imgWinner = winner[number + 1];
     document.getElementById("winnerPhoto").src = imgWinner;
     await new Promise(resolve => setTimeout(resolve, 2000));
+    document.getElementById("frameRuletilla").classList.remove('ledLaunch');
+    document.getElementById("frameRuletilla").classList.add('ledWinner');
     $('#winner').modal('show');
   }
 
@@ -209,6 +207,9 @@
       var arm = $(this).addClass('clicked');
       setTimeout(function () { arm.removeClass('clicked'); }, 500);
       e.preventDefault();
+      document.getElementById("frameRuletilla").classList.remove('ledStart');
+      document.getElementById("frameRuletilla").classList.remove('ledWinner');
+      document.getElementById("frameRuletilla").classList.add('ledLaunch');
       init();
       spin();
     });
@@ -221,14 +222,8 @@
     $('#CruzDani').click(function (e) {
       disable('CruzDani', "./assets/images/dani.svg", 2)
     });
-	  $('#CruzDiego').click(function (e) {
-      disable('CruzDiego', "./assets/images/diego.svg", 11)
-    });
     $('#CruzFer').click(function (e) {
       disable('CruzFer', './assets/images/fer.svg', 3)
-    });
-    $('#CruzJorge').click(function (e) {
-      disable('CruzJorge', './assets/images/jorge.svg', 4)
     });
     $('#CruzJose').click(function (e) {
       disable('CruzJose', './assets/images/jose.svg', 5)
