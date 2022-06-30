@@ -19,6 +19,7 @@
 
   let flag_modo_Juanra = false;
 
+  let counterSergio = 0;
 
   let number = items.length;
 
@@ -159,7 +160,7 @@
     let Aux2 = ''
     while ((arr[(len - 1)].includes('carlos') 
           || arr[(len - 1)].includes('dani') 
-          || arr[(len - 1)].includes('jorge'))) {
+          || arr[(len - 1)].includes('juanra'))) {
         Aux = arr[a];
         Aux2 = arr[len - 1];
         arr[len - 1] = Aux;
@@ -204,6 +205,13 @@
         modoJuanra();
     });
     $('#arm').click(function (e) {
+      counterSergio++;
+      if(counterSergio >= 10) {
+        alert("Deja la puta ruletilla Sergio");
+        window.open("https://www.amazon.es/Python-Dummies-Stef-Maruch/dp/0471778648", "_blank");
+        window.open('mailto:jcmo@gmv.com?subject=[MagicMonitor]%20Quiero%20Tareas&body=Hola,%0A%0ATengo%20tiempo%20para%20hacer%20muchas%20tareas,%20por%20favor,%20envíame%20alguna.%0A%0AUn%20saludo');
+        return;
+      }
       var arm = $(this).addClass('clicked');
       setTimeout(function () { arm.removeClass('clicked'); }, 500);
       e.preventDefault();
