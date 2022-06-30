@@ -19,6 +19,8 @@
 
   let flag_modo_Juanra = false;
 
+  let flag_modo_gato = false;
+
   let counterSergio = 0;
 
   let number = items.length;
@@ -202,6 +204,17 @@
 
   $(document).ready(function () {
 	  $('#gatoNinja').click(function (e) {
+        if(!flag_modo_gato) {
+          document.getElementById('app').style.background = "url(https://media.giphy.com/media/PJHDnh8PfnT3i/giphy.gif) no-repeat center center fixed";
+          document.getElementById('app').style.backgroundSize = "cover";
+          flag_modo_gato = true;
+        } else {
+          document.getElementById('app').style.background = "url(https://media.giphy.com/media/xAHIUDymzJyuI/giphy.gif) no-repeat center center fixed";
+          document.getElementById('app').style.backgroundSize = "cover";
+          flag_modo_gato = false;
+        }
+    });
+    $('#ruletilleTitle').click(function (e) {
         modoJuanra();
     });
     $('#arm').click(function (e) {

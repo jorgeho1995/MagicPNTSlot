@@ -124,6 +124,43 @@
       </div>
     </div>
 
+    <div class="modal fade" id="games">
+      <div class="modal-dialog" style="position: absolute; left: 5%; top: 5%;">
+        <div class="modal-content" style="width: 90vw">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">MagicGames<b style="color:red">♥</b></h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body" style="justify-content: center; text-align: center;">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#rubik">Chess</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#mines">Mines</a>
+              </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane container active" id="rubik">
+                <iframe src="https://fritz.chessbase.com" style="width:760px;height:480px"></iframe>
+              </div>
+              <div class="tab-pane container fade" id="mines">
+                <iframe src="https://nickarocho.github.io/minesweeper/" width="760px" height="650px"></iframe>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer" style="display: flex; justify-content: space-between;">
+            <p>Ruletilla Version: v2.1.0</p>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="header">
       <nav class="navbar navbar-expand-sm navbar-dark">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -140,9 +177,12 @@
             <li class="nav-item" onClick="$('#developers').modal('show');">
               <a class="nav-link" href="#"><span class="material-icons">info</span></a>
             </li>
+            <li class="nav-item" onClick="$('#games').modal('show'); delay();">
+              <a class="nav-link" href="#"><span class="material-icons">casino</span></a>
+            </li>
           </ul>
         </div>
-        <h3 style="margin-right: 5%;">MagicPNTSlot Machine</h3>
+        <h3 id="ruletilleTitle" style="margin-right: 5%;">MagicPNTSlot Machine</h3>
       </nav>
     </div>
 
