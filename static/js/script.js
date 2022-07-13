@@ -6,6 +6,7 @@
     "./assets/images/carlos.svg",
     "./assets/images/dani.svg",
     "./assets/images/fer.svg",
+    "./assets/images/nacho.svg",
     "./assets/images/jose.svg",
     "./assets/images/juanra.svg",
     "./assets/images/konrad.svg",
@@ -30,6 +31,7 @@
     "CruzCarlos",
     "CruzDani",
     "CruzFer",
+    "CruzNacho",
     "CruzJose",
     "CruzJuanra",
     "CruzKonrad",
@@ -245,6 +247,9 @@
     });
     $('#CruzFer').click(function (e) {
       disable('CruzFer', './assets/images/fer.svg', 3)
+    });
+    $('#CruzNacho').click(function (e) {
+      disable('CruzNacho', './assets/images/nacho.svg', 4)
     });
     $('#CruzJose').click(function (e) {
       disable('CruzJose', './assets/images/jose.svg', 5)
