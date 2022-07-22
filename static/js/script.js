@@ -11,7 +11,6 @@
     "./assets/images/juanra.svg",
     "./assets/images/konrad.svg",
     "./assets/images/ma.svg",
-    "./assets/images/sergio.svg",
     "./assets/images/pablo.svg"
   ];
 
@@ -21,8 +20,6 @@
   let flag_modo_Juanra = false;
 
   let flag_modo_gato = false;
-
-  let counterSergio = 0;
 
   let number = items.length;
 
@@ -36,7 +33,6 @@
     "CruzJuanra",
     "CruzKonrad",
     "CruzMA",
-    "CruzSergio",
     "CruzPablo"
   ];
 
@@ -220,13 +216,6 @@
         modoJuanra();
     });
     $('#arm').click(function (e) {
-      counterSergio++;
-      if(counterSergio >= 10) {
-        alert("Deja la puta ruletilla Sergio");
-        window.open("https://www.amazon.es/Python-Dummies-Stef-Maruch/dp/0471778648", "_blank");
-        window.open('mailto:jcmo@gmv.com?subject=[MagicMonitor]%20Quiero%20Tareas&body=Hola,%0A%0ATengo%20tiempo%20para%20hacer%20muchas%20tareas,%20por%20favor,%20envíame%20alguna.%0A%0AUn%20saludo');
-        return;
-      }
       var arm = $(this).addClass('clicked');
       setTimeout(function () { arm.removeClass('clicked'); }, 500);
       e.preventDefault();
@@ -236,6 +225,10 @@
       init();
       spin();
     });
+
+    // Function to start the background video in a random second
+    document.getElementById("myrandomiframe").setAttribute("src","https://www.youtube.com/embed/FYOH_54XEJY?start=" + Math.floor(Math.random() * (2700 - 1200 + 1) + 1200) + "&autoplay=1&mute=1");
+
     $('#CruzAdri').click(function (e) {
       disable('CruzAdri', "./assets/images/adri.svg", 0)
     });
@@ -262,9 +255,6 @@
     });
     $('#CruzMA').click(function (e) {
       disable('CruzMA', './assets/images/ma.svg', 8)
-    });
-    $('#CruzSergio').click(function (e) {
-      disable('CruzSergio', './assets/images/sergio.svg', 9)
     });
     $('#CruzPablo').click(function (e) {
       disable('CruzPablo', './assets/images/pablo.svg', 10)
