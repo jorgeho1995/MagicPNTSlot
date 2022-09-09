@@ -11,7 +11,9 @@
     "./assets/images/juanra.svg",
     "./assets/images/konrad.svg",
     "./assets/images/ma.svg",
-    "./assets/images/pablo.svg"
+    "./assets/images/pabloAlvarez.svg",
+    "./assets/images/pablo.svg",
+    "./assets/images/sergiu.svg"
   ];
 
   const modo_JRCH = ["./assets/images/Juanra.png",
@@ -33,7 +35,9 @@
     "CruzJuanra",
     "CruzKonrad",
     "CruzMA",
-    "CruzPablo"
+    "CruzPabloAlvarez",
+    "CruzPablo",
+    "CruzSergiu"
   ];
 
   const doors = document.querySelectorAll(".door");
@@ -256,8 +260,14 @@
     $('#CruzMA').click(function (e) {
       disable('CruzMA', './assets/images/ma.svg', 8)
     });
+    $('#CruzPabloAlvarez').click(function (e) {
+      disable('CruzPabloAlvarez', './assets/images/pabloAlvarez.svg', 10)
+    });
     $('#CruzPablo').click(function (e) {
       disable('CruzPablo', './assets/images/pablo.svg', 10)
+    });
+    $('#CruzSergiu').click(function (e) {
+      disable('CruzSergiu', './assets/images/sergiu.svg', 10)
     });
   });
 
