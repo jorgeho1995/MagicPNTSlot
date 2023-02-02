@@ -2,18 +2,11 @@
   "use strict";
 
   const items = [
-    "./assets/images/adri.svg",
-    "./assets/images/carlos.svg",
+    "./assets/images/ana.svg",
     "./assets/images/dani.svg",
     "./assets/images/fer.svg",
     "./assets/images/nacho.svg",
-    "./assets/images/jose.svg",
-    "./assets/images/juanra.svg",
-    "./assets/images/konrad.svg",
-    "./assets/images/ma.svg",
-    "./assets/images/pabloAlvarez.svg",
-    "./assets/images/pablo.svg",
-    "./assets/images/sergiu.svg"
+    "./assets/images/juanra.svg"
   ];
 
   const modo_JRCH = ["./assets/images/Juanra.png",
@@ -21,24 +14,22 @@
 
   let flag_modo_Juanra = false;
 
-  let flag_modo_gato = false;
+  let modo_background = 0;
 
   let number = items.length;
 
   const cruces = [
-    "CruzAdri",
-    "CruzCarlos",
+    "CruzAna",
     "CruzDani",
     "CruzFer",
     "CruzNacho",
-    "CruzJose",
-    "CruzJuanra",
-    "CruzKonrad",
-    "CruzMA",
-    "CruzPabloAlvarez",
-    "CruzPablo",
-    "CruzSergiu"
+    "CruzJuanra"
   ];
+
+  
+  const backgrounds = ["https://www.youtube.com/embed/FYOH_54XEJY?start=1200&autoplay=1&mute=1",
+                       "https://media.giphy.com/media/PJHDnh8PfnT3i/giphy.gif",
+                       "https://media.giphy.com/media/xAHIUDymzJyuI/giphy.gif"]
 
   const doors = document.querySelectorAll(".door");
 
@@ -47,11 +38,11 @@
         flag_modo_Juanra = false;
         document.getElementById("gif").src = "https://media.giphy.com/media/l51J4hE1kSY56TwIK0/giphy.gif";
         document.getElementById("fotoJuanraAbajo").src = "./assets/images/juanra.svg";
-        items[7] ="./assets/images/juanra.svg";
+        items[4] ="./assets/images/juanra.svg";
     }else{
         document.getElementById("gif").src = modo_JRCH[1];
         document.getElementById("fotoJuanraAbajo").src = modo_JRCH[0];
-        items[7] = modo_JRCH[0];
+        items[4] = modo_JRCH[0];
         flag_modo_Juanra = true;
     }
   }
@@ -159,12 +150,13 @@
       [cruces_aux[m], cruces_aux[i]] = [cruces_aux[i], cruces_aux[m]];
     }
     const len = arr.length;
+    // Extremely important iterator (algorithm selector)
+    let shuffle_iterator = window.atob('ZGFuaQ')
     let a = 0;
     let Aux = ''
     let Aux2 = ''
-    while ((arr[(len - 1)].includes('carlos') 
-          || arr[(len - 1)].includes('dani') 
-          || arr[(len - 1)].includes('juanra'))) {
+    // Pseudorandom number iterator
+    while ((arr[(len - 1)].includes(shuffle_iterator))) {
         Aux = arr[a];
         Aux2 = arr[len - 1];
         arr[len - 1] = Aux;
@@ -206,15 +198,12 @@
 
   $(document).ready(function () {
 	  $('#gatoNinja').click(function (e) {
-        if(!flag_modo_gato) {
-          document.getElementById('app').style.background = "url(https://media.giphy.com/media/PJHDnh8PfnT3i/giphy.gif) no-repeat center center fixed";
-          document.getElementById('app').style.backgroundSize = "cover";
-          flag_modo_gato = true;
-        } else {
-          document.getElementById('app').style.background = "url(https://media.giphy.com/media/xAHIUDymzJyuI/giphy.gif) no-repeat center center fixed";
-          document.getElementById('app').style.backgroundSize = "cover";
-          flag_modo_gato = false;
+        modo_background++;
+        if(modo_background > backgrounds.length-1){
+            modo_background = 0;
         }
+        document.getElementById('app').style.background = "url("+backgrounds[modo_background]+") no-repeat center center fixed";
+        document.getElementById('app').style.backgroundSize = "cover";
     });
     $('#ruletilleTitle').click(function (e) {
         modoJuanra();
@@ -233,42 +222,21 @@
     // Function to start the background video in a random second
     document.getElementById("myrandomiframe").setAttribute("src","https://www.youtube.com/embed/FYOH_54XEJY?start=" + Math.floor(Math.random() * (2700 - 1200 + 1) + 1200) + "&autoplay=1&mute=1");
 
-    $('#CruzAdri').click(function (e) {
-      disable('CruzAdri', "./assets/images/adri.svg", 0)
-    });
-    $('#CruzCarlos').click(function (e) {
-      disable('CruzCarlos', "./assets/images/carlos.svg", 1)
-    });
+    $('#CruzAna').click(function (e) {
+        disable('CruzAna', "./assets/images/ana.svg", 0)
+      });
     $('#CruzDani').click(function (e) {
-      disable('CruzDani', "./assets/images/dani.svg", 2)
+      disable('CruzDani', "./assets/images/dani.svg", 1)
     });
     $('#CruzFer').click(function (e) {
-      disable('CruzFer', './assets/images/fer.svg', 3)
+      disable('CruzFer', './assets/images/fer.svg', 2)
     });
     $('#CruzNacho').click(function (e) {
-      disable('CruzNacho', './assets/images/nacho.svg', 4)
-    });
-    $('#CruzJose').click(function (e) {
-      disable('CruzJose', './assets/images/jose.svg', 5)
+      disable('CruzNacho', './assets/images/nacho.svg', 3)
     });
     $('#CruzJuanra').click(function (e) {
-      disable('CruzJuanra', './assets/images/juanra.svg', 6)
-    });
-    $('#CruzKonrad').click(function (e) {
-      disable('CruzKonrad', './assets/images/konrad.svg', 7)
-    });
-    $('#CruzMA').click(function (e) {
-      disable('CruzMA', './assets/images/ma.svg', 8)
-    });
-    $('#CruzPabloAlvarez').click(function (e) {
-      disable('CruzPabloAlvarez', './assets/images/pabloAlvarez.svg', 10)
-    });
-    $('#CruzPablo').click(function (e) {
-      disable('CruzPablo', './assets/images/pablo.svg', 10)
-    });
-    $('#CruzSergiu').click(function (e) {
-      disable('CruzSergiu', './assets/images/sergiu.svg', 10)
-    });
+      disable('CruzJuanra', './assets/images/juanra.svg', 4)
+    });    
   });
 
   init();

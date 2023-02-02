@@ -67,6 +67,59 @@
       </div>
     </div>
 
+    <div class="modal fade" id="oldPntTeam">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Old PNT team <b style=>&#128546;</b></h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body" style="justify-content: center; text-align: center;">
+              <div class="row">
+                <div class="col-lg-3">
+                  <img src="./assets/images/adri.svg" style="width: 100px; height: 100px;">
+                  <div style="background-color: white; border-radius: 5px;"><b>ANQG</b></div>
+                </div>
+                <div class="col-lg-3">
+                    <img src="./assets/images/carlos.svg" style="width: 100px; height: 100px;">
+                    <div style="background-color: white; border-radius: 5px;"><b>CSDA</b></div>
+                </div>
+                <div class="col-lg-3">
+                    <img src="./assets/images/jose.svg" style="width: 100px; height: 100px;">
+                    <div style="background-color: white; border-radius: 5px;"><b>JCMO</b></div>
+                </div>
+                <div class="col-lg-3">
+                    <img src="./assets/images/konrad.svg" style="width: 100px; height: 100px;">
+                    <div style="background-color: white; border-radius: 5px;"><b>KKJA</b></div>
+                </div>
+                <div class="col-lg-3">
+                <img src="./assets/images/ma.svg" style="width: 100px; height: 100px;">
+                <div style="background-color: white; border-radius: 5px;"><b>MAFG</b></div>
+                </div>
+                <div class="col-lg-3">
+                    <img src="./assets/images/pabloAlvarez.svg" style="width: 100px; height: 100px;">
+                    <div style="background-color: white; border-radius: 5px;"><b>PAGA</b></div>
+                </div>
+                <div class="col-lg-3">
+                <img src="./assets/images/pablo.svg" style="width: 100px; height: 100px;">
+                <div style="background-color: white; border-radius: 5px;"><b>PLZM</b></div>
+                </div>
+                <div class="col-lg-3">
+                    <img src="./assets/images/sergiu.svg" style="width: 100px; height: 100px;">
+                    <div style="background-color: white; border-radius: 5px;"><b>SEGN</b></div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer" style="display: flex; justify-content: space-between;">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <div class="modal fade" id="wallOfFame">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -131,7 +184,7 @@
           </div>
           <!-- Modal footer -->
           <div class="modal-footer" style="display: flex; justify-content: space-between;">
-            <p>Ruletilla Version: v2.2.0</p>
+            <p>Ruletilla Version: v3.0.0</p>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
@@ -168,7 +221,7 @@
           </div>
           <!-- Modal footer -->
           <div class="modal-footer" style="display: flex; justify-content: space-between;">
-            <p>Ruletilla Version: v2.2.0</p>
+            <p>Ruletilla Version: v3.0.0</p>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
@@ -185,6 +238,9 @@
             <img id="gatoNinja" src="./assets/images/pnt.svg" style="width: 150px; height: 100px;">
           </a>
           <ul class="navbar-nav">
+            <li class="nav-item" onClick="$('#oldPntTeam').modal('show');">
+                <a class="nav-link" href="#"><span class="material-icons">satellite_alt</span></a>
+            </li>
             <li class="nav-item" onClick="$('#wallOfFame').modal('show');">
               <a class="nav-link" href="#"><span class="material-icons">waving_hand</span></a>
             </li>
@@ -225,16 +281,10 @@
 
     <div class="info">
       <div class="col-lg-1">
-        <img id="CruzAdri" src="./assets/images/cruz.svg"
+        <img id="CruzAna" src="./assets/images/cruz.svg"
           style="position: absolute; width: 100px; height: 100px; opacity: 0;">
-        <img src="./assets/images/adri.svg" style="width: 100px; height: 100px;">
-        <div>ANQG</div>
-      </div>
-      <div class="col-lg-1">
-        <img id="CruzCarlos" src="./assets/images/cruz.svg"
-          style="position: absolute; width: 100px; height: 100px; opacity: 0;">
-        <img src="./assets/images/carlos.svg" style="width: 100px; height: 100px;">
-        <div>CSDA</div>
+        <img src="./assets/images/ana.svg" style="width: 100px; height: 100px;">
+        <div>AASC</div>
       </div>
       <div class="col-lg-1">
         <img id="CruzDani" src="./assets/images/cruz.svg"
@@ -255,47 +305,11 @@
         <div>IGSP</div>
       </div>
       <div class="col-lg-1">
-        <img id="CruzJose" src="./assets/images/cruz.svg"
-          style="position: absolute; width: 100px; height: 100px; opacity: 0;">
-        <img src="./assets/images/jose.svg" style="width: 100px; height: 100px;">
-        <div>JCMO</div>
-      </div>
-      <div class="col-lg-1">
         <img id="CruzJuanra" src="./assets/images/cruz.svg"
           style="position: absolute; width: 100px; height: 100px; opacity: 0;">
         <img id="fotoJuanraAbajo" src="./assets/images/juanra.svg"
           style="width: 100px; object-fit: scale-down; height: 100px;">
         <div>JRCH</div>
-      </div>
-      <div class="col-lg-1">
-        <img id="CruzKonrad" src="./assets/images/cruz.svg"
-          style="position: absolute; width: 100px; height: 100px; opacity: 0;">
-        <img src="./assets/images/konrad.svg" style="width: 100px; height: 100px;">
-        <div>KKJA</div>
-      </div>
-      <div class="col-lg-1">
-        <img id="CruzMA" src="./assets/images/cruz.svg"
-          style="position: absolute; width: 100px; height: 100px; opacity: 0;">
-        <img src="./assets/images/ma.svg" style="width: 100px; height: 100px;">
-        <div>MAFG</div>
-      </div>
-      <div class="col-lg-1">
-        <img id="CruzPabloAlvarez" src="./assets/images/cruz.svg"
-          style="position: absolute; width: 100px; height: 100px; opacity: 0;">
-        <img src="./assets/images/pabloAlvarez.svg" style="width: 100px; height: 100px;">
-        <div>PAGA</div>
-      </div>
-      <div class="col-lg-1">
-        <img id="CruzPablo" src="./assets/images/cruz.svg"
-          style="position: absolute; width: 100px; height: 100px; opacity: 0;">
-        <img src="./assets/images/pablo.svg" style="width: 100px; height: 100px;">
-        <div>PLZM</div>
-      </div>
-      <div class="col-lg-1">
-        <img id="CruzSergiu" src="./assets/images/cruz.svg"
-          style="position: absolute; width: 100px; height: 100px; opacity: 0;">
-        <img src="./assets/images/sergiu.svg" style="width: 100px; height: 100px;">
-        <div>SEGN</div>
       </div>
     </div>
   </div>
